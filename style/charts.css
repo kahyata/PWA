@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap');
+
+.line-charts .header{
+    text-align: center;
+}
+.line-charts .header .Historical {
+    color: rgb(255, 255, 255); 
+    font-weight: bold;
+}
+.chart-container {
+    width: 60%;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px auto;
+    box-shadow: 4px 4px 0px rgb(255, 255, 255);
+    grid-column: span 3;   
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+}
+
+
+canvas {
+    width: 100% !important;
+    height: 600px !important;
+}

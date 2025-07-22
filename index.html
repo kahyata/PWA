@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart iOS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="style/desktop-responsive.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="style/mobile-responsive.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="style/devices.css">
+    <link rel="stylesheet" href="style/charts.css">
+</head>
+<body>
+<nav class="desktop-navbar">
+    <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#devices">Devices</a></li>
+    </ul>
+</nav>
+<nav class="mobile-navbar">
+    <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#devices">Devices</a></li>
+    </ul>
+</nav>
+<section class="content">
+    <div class="control-panel">
+        <div class="temperature">
+            <div class="temp-value" id="temp">22°C</div>
+            <label for="temp">Temperature</label>
+        </div>
+        <div class="Humidity">
+            <div class="humi-value" id="humi">52%</div>
+            <label for="humi">Humidity</label>
+        </div>
+        <div class="Switch">
+            <div class="switch-container">
+                <button id="lights" class="switch-button">
+                    <svg viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6.34315 6.34315C5.22433 7.46197 4.4624 8.88743 4.15372 10.4393C3.84504 11.9911 4.00346 13.5997 4.60896 15.0615C5.21447 16.5233 6.23985 17.7727 7.55544 18.6518C8.87103 19.5308 10.4178 20 12 20C13.5823 20 15.129 19.5308 16.4446 18.6518C17.7602 17.7727 18.7855 16.5233 19.391 15.0615C19.9965 13.5997 20.155 11.9911 19.8463 10.4393C19.5376 8.88743 18.7757 7.46197 17.6569 6.34315" stroke-linecap="round"></path>
+                            <path d="M12 8L12 4" stroke-linecap="round"></path>
+                        </g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M6.34315 6.34315C5.22433 7.46197 4.4624 8.88743 4.15372 10.4393C3.84504 11.9911 4.00346 13.5997 4.60896 15.0615C5.21447 16.5233 6.23985 17.7727 7.55544 18.6518C8.87103 19.5308 10.4178 20 12 20C13.5823 20 15.129 19.5308 16.4446 18.6518C17.7602 17.7727 18.7855 16.5233 19.391 15.0615C19.9965 13.5997 20.155 11.9911 19.8463 10.4393C19.5376 8.88743 18.7757 7.46197 17.6569 6.34315" stroke-linecap="round"></path>
+                            <path d="M12 8L12 4" stroke-linecap="round"></path>
+                        </g>
+                    </svg>
+                </button>
+                <label for="lights">Lights</label>
+            </div>
+        </div>
+    </div>
+    <div class="line-charts">
+        <div class="header">
+            <h2 class="Historical">Historical Charts</h2>
+        </div>
+        <div class="chart-container">
+            <canvas id="tempHumidityChart"></canvas>
+        </div>
+    </div>
+    <div class="devices" id="devices">
+        <h2>Devices</h2>
+        <div class="device-list">
+            <div class="device-item">
+                <div class="device-header">
+                    <h3 class="device-name">Door</h3>
+                    <div class="device-icon">
+                        <svg fill="#ffffff" viewBox="-9 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" width="24" height="24">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier"> 
+                                <title>door</title> 
+                                <path d="M13.28 5.88c-0.12-0.080-0.28-0.12-0.44-0.12 0 0 0 0-0.040 0h-12c-0.44 0-0.84 0.36-0.84 0.84v15.080c0 0.44 0.36 0.84 0.84 0.84h2.4v2.92c0 0.28 0.12 0.52 0.36 0.68 0.12 0.080 0.28 0.12 0.44 0.12 0.12 0 0.24-0.040 0.32-0.080l8.84-3.76c0.32-0.12 0.52-0.44 0.52-0.76v-15.040c-0.040-0.28-0.16-0.56-0.4-0.72zM1.64 20.8v-13.4h7.16l-5.080 2.2c-0.32 0.12-0.52 0.44-0.52 0.76v10.44h-1.56zM12 21.12l-7.12 3.040v-13.28l7.12-3.040v13.28zM7.64 16.84c0 0.464-0.376 0.84-0.84 0.84s-0.84-0.376-0.84-0.84c0-0.464 0.376-0.84 0.84-0.84s0.84 0.376 0.84 0.84z"></path> 
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <p class="device-status">Status: Closed</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<script src="THcharts.js"></script>
+</body>
+</html>

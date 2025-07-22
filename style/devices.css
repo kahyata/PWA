@@ -1,0 +1,22 @@
+.devices {
+    color: aliceblue;
+    text-align: center;
+}
+.device-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+}
+.device-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.device-icon {
+    display: flex;
+    align-items: center;
+}
+.device-status {
+    margin-top: 4px;
+}

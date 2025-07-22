@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap');
+
+.desktop-navbar {
+    display: none;
+}
+
+.mobile-navbar {
+    background-color: #000000;
+    padding: 10px 0px;
+    width: 90%;
+    position: sticky;
+    top: 0;
+    margin: 0 auto;
+    border-radius: 25px;
+    border: #fff 2px solid;
+    box-shadow: 4px 4px 0px rgb(255, 255, 255);
+    z-index: 1000;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;     
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a:active {
+    background-color: #333;
+    color: #ffcc00;
+}
+
+/* Base body styles */
+body {
+    font-family: "Bitcount Prop Single", system-ui;
+    font-style: italic;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile Control Panel - Adapted from Desktop */
+.control-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 15px;
+}
+
+.control-panel > div {
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-panel .temperature,
+.control-panel .Humidity,
+.control-panel .Switch {
+    grid-column: span 1;
+}
+
+.control-panel label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.temp-value,
+.humi-value {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Switch/Lights Control Styles - Same as Desktop */
+.switch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.switch-button {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #3a3a3a, #2b2b2b);
+    border: none;
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.3),
+        -3px -3px 6px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.switch-button:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.4),
+        -4px -4px 8px rgba(255, 255, 255, 0.15);
+}
+
+.switch-button:active {
+    transform: scale(0.98);
+}
+
+.switch-button svg {
+    width: 60%;
+    height: 60%;
+}
+
+.switch-button svg path {
+    stroke: #ffffff;
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+
+.switch-button:hover svg path {
+    stroke: #ffcc00;
+}
+
+/* Active state */
+.switch-button.active {
+    background: linear-gradient(145deg, #f8d56b, #ffb700);
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.2),
+        -3px -3px 6px rgba(255, 255, 255, 0.2),
+        inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.switch-button.active svg path {
+    stroke: #3a3a3a;
+}
+
+.switch-button.active ~ label {
+    color: #f8d56b;
+}
+
+label:active {
+    transform: translateY(1px);
+}
+
+/* Charts Section */
+.line-charts .header{
+    text-align: center;
+}
+.line-charts .header .Historical {
+    color: rgb(255, 255, 255); 
+    font-weight: bold;
+}
+.chart-container {
+    width: 90%;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px auto;
+    box-shadow: 4px 4px 0px rgb(255, 255, 255);
+    grid-column: span 3;   
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+}
+
+canvas {
+    width: 100% !important;
+    height: 400px !important;
+}
+
